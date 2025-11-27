@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Varun | Videos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">VARUN<span>.RETRO</span></a>
+      <nav>
+        <a class="nav-link" href="index.html#home">Home</a>
+        <a class="nav-link primary" href="videos.html">Videos</a>
+        <a class="nav-link" href="photos.html">Photos</a>
+        <a class="nav-link" href="index.html#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrapper" id="video-page">
+    <section class="page-header">
+      <h1 class="page-title">Videos</h1>
+      <p class="page-subtitle">
+        Latest video is highlighted first. Showcase section shows some picks. Scroll to see the full videos.
+      </p>
+      <div class="page-header-meta">
+        <span id="video-total-label">Total videos: <strong id="video-count">0</strong></span>
+      </div>
+      <div class="page-search">
+        <div class="search-wrapper">
+          <span class="icon">🔍</span>
+          <input id="global-search" type="text" placeholder="Search by title..." />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Latest video</h2>
+      <div id="featured-video" class="featured-wrapper">
+        <!-- JS will inject featured video -->
+      </div>
+    </section>
+
+    <!-- 🔥 NEW SHOWCASE SECTION -->
+    <section>
+      <h2>Showcase videos</h2>
+      <p class="section-subtitle">
+        Some highlighted videos shown, Must watch!
+      </p>
+      <div class="grid showcase-grid" id="showcase-grid">
+        <!-- JS will inject showcase videos -->
+      </div>
+    </section>
+
+    <section>
+      <h2>All videos</h2>
+      <p class="section-subtitle">
+        All your videos listed here.
+      </p>
+      <div class="grid" id="video-grid">
+        <!-- JS will inject all videos -->
+      </div>
+    </section>
+
+    <footer>
+      <span>Back to <a href="index.html#home">Home</a></span>
+      <span>© <span id="year"></span> Varun N</span>
+    </footer>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

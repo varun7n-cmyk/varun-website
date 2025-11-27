@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Varun | Photos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">VARUN<span>.RETRO</span></a>
+      <nav>
+        <a class="nav-link" href="index.html#home">Home</a>
+        <a class="nav-link" href="videos.html">Videos</a>
+        <a class="nav-link primary" href="photos.html">Photos</a>
+        <a class="nav-link" href="index.html#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrapper" id="photo-page">
+    <section class="page-header">
+      <h1 class="page-title">Photos</h1>
+      <p class="page-subtitle">
+        Tap any photo to view it in fullscreen. Use the arrows or keyboard to move between shots.
+      </p>
+      <div class="page-header-meta">
+        <span id="photo-total-label">Total photos: <strong id="photo-count">0</strong></span>
+      </div>
+      <div class="page-search">
+        <div class="search-wrapper">
+          <span class="icon">🔍</span>
+          <input id="global-search" type="text" placeholder="Search photo titles..." />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Latest photo</h2>
+      <div id="featured-photo" class="featured-wrapper">
+        <!-- JS will inject featured photo -->
+      </div>
+    </section>
+
+    <section>
+      <h2>Gallery</h2>
+      <p class="section-subtitle">Click any photo to open a fullscreen viewer.</p>
+      <div class="grid" id="photo-grid">
+        <!-- JS will inject remaining photos -->
+      </div>
+    </section>
+
+    <footer>
+      <span>Back to <a href="index.html#home">Home</a></span>
+      <span>© <span id="year"></span> Varun N</span>
+    </footer>
+  </div>
+
+  <!-- Fullscreen photo viewer -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox-arrow lightbox-prev" aria-label="Previous photo">‹</button>
+    <figure class="lightbox-content">
+      <img id="lightbox-image" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox-arrow lightbox-next" aria-label="Next photo">›</button>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
