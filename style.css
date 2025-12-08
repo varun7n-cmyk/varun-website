@@ -1,125 +1,106 @@
 /* =========================================
-   MOBILE RESPONSIVENESS (Add to bottom of style.css)
+   MOBILE RESPONSIVENESS PATCH
+   Add this to the very bottom of style.css
    ========================================= */
 
-@media (max-width: 768px) {
-
-  /* 1. Navigation Bar: Stack logo and links cleanly */
+@media (max-width: 850px) {
+  /* --- Navigation --- */
   .nav-inner {
     flex-direction: column;
-    padding: 10px 16px;
-    gap: 12px;
+    padding: 12px;
+    gap: 15px;
   }
-
+  
   nav {
+    justify-content: center;
     width: 100%;
-    justify-content: center; /* Center links */
-    gap: 8px; /* Tighter spacing */
+    gap: 8px;
   }
 
   .nav-link {
-    font-size: 0.75rem; /* Smaller text for mobile */
-    padding: 6px 10px;
+    font-size: 0.75rem;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* --- Global Wrapper --- */
+  .wrapper {
+    padding: 10px 10px 40px; /* Less padding on edges */
   }
 
-  /* 2. Fix the Hero Section sizing */
+  /* --- Hero Section --- */
+  .hero {
+    grid-template-columns: 1fr; /* Stack content vertically */
+    margin-top: 10px;
+  }
+  
   .hero-main {
-    padding: 20px 16px; /* Less padding to save space */
+    padding: 20px 16px;
   }
-
+  
   .hero-title {
-    font-size: 1.6rem; /* Prevent headline from being huge */
+    font-size: 1.6rem; /* Smaller font for mobile */
   }
 
   .hero-quick-links {
     justify-content: flex-start;
   }
-
+  
   .hero-quick-links button {
-    flex: 1; /* Buttons grow to fill width easier to tap */
+    flex: 1; /* Make buttons expand to fill width */
     justify-content: center;
   }
 
-  /* 3. CRITICAL: Fix Showcase Grid Overflow */
-  /* The original 420px min-width is too wide for phones */
+  /* --- Grids (Crucial Fix) --- */
+  /* Fixes the 420px overflow issue */
   .showcase-grid {
     grid-template-columns: 1fr !important; /* Force single column */
     gap: 20px;
   }
   
-  .showcase-grid .card:hover {
-    /* Reduce the hover "pop" effect on mobile so it doesn't go off-screen */
-    transform: translateY(-3px) scale(1.01);
-  }
-
-  /* 4. General Cards & Grids */
   .grid {
-    gap: 16px;
-    /* Ensure cards don't get smaller than 100% of the screen width minus padding */
-    grid-template-columns: 1fr; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* allow smaller cards */
   }
 
-  /* 5. Featured Section (Side-by-side layout becomes stacked) */
-  .featured-card {
-    flex-direction: column;
+  /* --- Cards --- */
+  .card:hover {
+    /* Remove hover lift on touch devices to prevent sticky hover states */
+    transform: none; 
   }
   
-  .featured-card .card-media {
-    aspect-ratio: 16 / 9;
+  .card-media {
+    aspect-ratio: 16/10; /* Slightly taller on mobile */
   }
 
-  /* 6. Lightbox (Fullscreen Image Viewer) Adjustments */
+  /* --- Lightbox (Photo Viewer) --- */
   .lightbox-arrow {
-    background: rgba(0, 0, 0, 0.5); /* Darker background for visibility */
-    width: 44px; /* Larger tap target */
+    width: 44px;
     height: 44px;
+    background: rgba(0,0,0,0.85);
     font-size: 1.2rem;
   }
-
-  /* Move arrows to bottom corners so they don't cover the image on narrow screens */
+  
+  /* Move arrows to the bottom on mobile so they don't cover the image */
   .lightbox-prev {
-    left: 10px;
+    left: 20px;
+    top: auto;
+    bottom: 20px;
+    transform: none;
+  }
+  
+  .lightbox-next {
+    right: 20px;
     top: auto;
     bottom: 20px;
     transform: none;
   }
 
-  .lightbox-next {
-    right: 10px;
-    top: auto;
-    bottom: 20px;
-    transform: none;
+  .lightbox-content img {
+    max-height: 60vh; /* Make room for buttons at bottom */
   }
   
   .lightbox-caption {
-    margin-bottom: 60px; /* Make room for the arrows at the bottom */
-    padding: 0 10px;
-    font-size: 0.8rem;
-  }
-  
-  .lightbox-close {
-    top: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    background: rgba(0,0,0,0.8);
-  }
-
-  /* 7. Hide profile stats side-card on very small screens if it takes too much space? 
-     Optional: currently it stacks under the hero, which is fine. 
-     But let's make the Search bar easier to reach. */
-  .hero-side {
-    gap: 20px;
-  }
-}
-
-/* Extra small phones (Galaxy Fold, old iPhones) */
-@media (max-width: 380px) {
-  .hero-title {
-    font-size: 1.4rem;
-  }
-  .nav-link {
-    font-size: 0.7rem;
-    padding: 5px 8px;
+    margin-bottom: 60px; /* Push caption up so buttons don't cover it */
   }
 }
